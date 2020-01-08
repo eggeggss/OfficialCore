@@ -1,0 +1,62 @@
+﻿#msg_win {
+    position: absolute;
+    right: 70px;
+    display: none;
+    overflow: hidden;
+    z-index: 99;
+    border: 1px solid #e3ad19;
+    background: #fff;
+    width: 300px;
+    font-size: 12px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+    #msg_win .icos {
+        position: absolute;
+        top: 2px;
+        *top: 0px;
+        right: 2px;
+        z-index: 9;
+    }
+
+.icos a {
+    float: left;
+    color: #FFFFFF;
+    margin: 1px;
+    text-align: center;
+    font-weight: bold;
+    width: 14px;
+    height: 22px;
+    line-height: 22px;
+    padding: 1px;
+    text-decoration: none;
+    font-family: webdings;
+}
+
+    .icos a:hover {
+        color: #FFCC00;
+    }
+
+#msg_title {
+    background: #e3ad19;
+    border-bottom: 1px solid #710B97;
+    border-top: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    color: #FFFFFF;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 10px;
+}
+
+    #msg_title:hover {
+        cursor: pointer;
+    }
+
+#msg_content {
+    margin: 5px;
+    margin-right: 0;
+    width: 230px;
+    height: 350px;
+    overflow: hidden;
+}

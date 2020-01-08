@@ -1,0 +1,579 @@
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+
+@using MirleOfficial.ViewModel;
+@{
+    //Layout = null;
+
+    String Lang = ViewBag.Lang as String;
+    int lang_type = (int)ViewBag.LangType;
+    FirstViewModel firstViewModel = ViewBag.FirstViewModel as FirstViewModel;
+    ViewBag.ModelCount = firstViewModel.Pro_kind.Count();
+    string url_banner_joinmirle = Url.Content("~/upload/common/joinmirle3.jpg");
+
+}
+
+
+@section metatags
+{
+    <meta property="og:title" content="盟立自動化">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:locale" content="">
+    <meta property="fb:app_id" content="" />
+    <title>首頁 | 盟立自動化</title>
+    <meta name="keywords" content="首頁、mirle">
+    <meta name="description" content="首頁 | 盟立自動化">
+}
+
+<style>
+    .video-obj:hover {
+        cursor: pointer;
+    }
+
+    .joinus-obj:hover {
+        cursor: pointer;
+    }
+
+    .popup-obj:hover {
+        cursor: pointer;
+    }
+
+    .prod-category {
+        font-family: source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        height: 6vw;
+    }
+
+    .ml6 {
+        position: relative;
+        font-weight: 900;
+    }
+
+        .ml6 .text-wrapper {
+            position: relative;
+            display: inline-block;
+            /*padding-top: 0.2em;
+          padding-right: 0.05em;
+          padding-bottom: 0.1em;*/
+            overflow: hidden;
+        }
+
+        .ml6 .letter {
+            display: inline-block;
+            line-height: 1em;
+        }
+
+    .solution-body > ul > li > a {
+        color: black !important;
+    }
+
+    .solution-list section {
+        font-size: 14px;
+        font-family: source-han-sans-simplified-c,'Noto Sans SC Sliced', 'Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /*truncate end*/
+    }
+
+    .solution-list .solution-cate {
+        margin-bottom: 10px;
+        font-family: source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;
+        font-size: 16px;
+    }
+
+    .card {
+        background-color: #ffffff;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    .news-item {
+        background-color: #004EA2;
+        font-size: 18px;
+    }
+
+    .parallax {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .prod-index-title {
+        font-size: 12px;
+    }
+
+    .carousel-fade {
+        .carousel-inner
+
+    {
+        .item
+
+    {
+        transition-property: opacity;
+    }
+
+    .item,
+    .active.left,
+    .active.right {
+        opacity: 0;
+    }
+
+    .active,
+    .next.left,
+    .prev.right {
+        opacity: 1;
+    }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+
+    }
+
+    @@media screen and (min-width:1024px) {
+        .card-text {
+            font-size: 16px;
+        }
+
+        .prod-index-title {
+            font-size: 18px;
+        }
+    }
+</style>
+<div class="banner" style="position:relative;bottom:0px;padding-bottom:0;margin-bottom:0;">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators" style="box-shadow:none !important;">
+            @{
+                int count_indicator = 0;
+            }
+
+            @foreach (var item in firstViewModel.Carousel)
+            {
+                if (count_indicator == 0)
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@count_indicator" class="active"></li>
+                }
+                else
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@count_indicator"></li>
+                }
+                count_indicator++;
+            }
+        </ol>
+        <div class="carousel-inner"
+             role="listbox" style="box-shadow:none !important;">
+
+            @{
+                int count = 0;
+                string url_image = "";
+                string active = "";
+                string youtubeclass = "";
+                string urlclass = "";
+                string popupclass = "";
+            }
+
+            @foreach (var item in firstViewModel.Carousel)
+            {
+
+                url_image = Url.Content($"~/upload/carousel/{item.pic1}");
+
+                if (count == 0)
+                {
+                    active = "active";
+                }
+                else
+                {
+                    active = "";
+                }
+
+                switch (item.url_type)
+                {
+                    case 0:
+                        urlclass = "";
+                        youtubeclass = "";
+                        popupclass = "";
+                        break;
+                    case 1:
+                        urlclass = "joinus-obj";
+                        youtubeclass = "";
+                        popupclass = "";
+                        break;
+                    case 2:
+                        urlclass = "";
+                        youtubeclass = "video-obj";
+                        popupclass = "";
+                        break;
+                    case 3:
+                        urlclass = "";
+                        youtubeclass = "";
+                        popupclass = "popup-obj";
+
+
+
+                        break;
+                    default:
+                        urlclass = "";
+                        youtubeclass = "";
+                        break;
+                }
+
+                <div class="carousel-item @active @urlclass @youtubeclass @popupclass"
+                     data-youtubecode="@item.youtbue_code"
+                     data-urlcode="@item.link"
+                     data-num="@item.num"
+                     style="background: -webkit-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(@url_image) no-repeat;
+                            background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(@url_image) no-repeat;
+                            background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(@url_image) no-repeat;
+                            background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)), url(@url_image) no-repeat;
+                            background: url(@url_image) no-repeat;
+                            background-size: cover,contain;
+                            width:100%;
+                            background-position:center;">
+                    <div class="carousel-caption">
+                        <section class="prod-block"></section>
+                    </div>
+                </div>
+
+                if (item.url_type == 3)
+                {
+                    string popo = "";
+                    if (!String.IsNullOrEmpty(item.popup_link))
+                    {
+
+                        popo = item.popup_link;
+
+                        <div class="modal fade picModel" id="exampleModal_@item.num"
+                             tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <a href="@popo" target="_blank">
+                                        <div class="modal-body">
+                                            <img src="@Url.Content($"~/upload/carousel/{item.popup_img}")" width="600" height="600"
+                                                 class="img-fluid" alt="" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="modal fade picModel" id="exampleModal_@item.num"
+                             tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <a>
+                                        <div class="modal-body">
+                                            <img src="@Url.Content($"~/upload/carousel/{item.popup_img}")" width="600" height="600"
+                                                 class="img-fluid" alt="" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                }
+
+
+                count++;
+            }
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal"
+     tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body video">
+                <iframe class="youtube-player"
+                        width="400" height="300" src="" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" style="margin-top:50px;">
+    <div class="row justify-content-center">
+        @foreach (var item in firstViewModel.Pro_kind)
+        {
+            if (item.ispresent == 1)
+            {
+                <div class="col-lg-3 col-md-4 col-6">
+
+                    <div class="card d-block  shadow p-1 mb-5 rounded hvr-grow">
+                        <a href="@Url.Content($"~/Product/Parent/{Lang}/{item.num}/{item.kind.Replace("/", "-").Replace("+","-")}")">
+                            <img class="card-img-bottom"
+                                 src="@Url.Content($"~/upload/prokind/{item.pic}")"
+                                 alt="Card image cap">
+
+                            <div class="card-body m-0 p-0">
+                                <p class="card-text m-0 p-0 text-center pt-1  h-100 d-flex flex-column justify-content-end">
+                                    <span class="prod-index-title" style="
+                                        font-family:  source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;
+                                        opacity:0.9;
+                                        background-color:white;
+                                        color:black;
+                                        ">@item.kind</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                }
+            }
+    </div>
+    @{
+
+        string url_banner = Url.Content("~/upload/common/banner43.jpg");
+        string url_banner_right = Url.Content("~/upload/common/video2.jpg");
+
+
+        //string url_banner = "https://picsum.photos/2426/1728?random=1";
+    }
+</div>
+
+
+<div class="container-fluid d-none d-lg-block">
+    <div class="row justify-content-center">
+        <div class="col-8 p-0 m-0">
+            <div class="banner-inner1 "
+                 style="
+                        background: -webkit-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner) no-repeat;
+                        background: -moz-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner) no-repeat;
+                        background: -ms-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner) no-repeat;
+                        background: linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner) no-repeat;
+                        background-size:cover;
+                        background-position: center;
+                        background-attachment: fixed;
+
+                        min-height:200px;">
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="col-12 my-1 p-5 ">
+                        <div style="opacity:0.8;
+                             background-color:#004EA2;
+                             width:100%;">
+                            <div class="d-flex justify-content-around flex-row flex-wrap">
+                                <div class="col-lg-8 p-0 mt-5 text-left h3 text-white">
+                                    @{
+                                        if (lang_type == 2)
+                                        {
+                                            <div>FocusNews</div>
+                                            //@Resource1.FocusNews;
+                                        }
+                                        else
+                                        {
+                                            <div>HotNews</div>
+                                            //@Resource1.HotNews;
+                                        }
+                                    }
+
+
+                                </div>
+                                <div class="col-lg-8 p-0 mb-5 text-left  solution-list">
+                                    <div class="d-flex flex-row">
+                                        <ul class="p-0 col-10" style="list-style:none;color:white;">
+
+                                            @{
+
+                                                if (lang_type == 2)
+                                                {
+                                                    foreach (var item in firstViewModel.News_ProdTop)
+                                                    {
+                                                        <li class="my-3">
+                                                            <section style="font-size:18px;">
+                                                                <span class="btn btn-outline-primary btn-lg text-white border-white">Activity</span>
+                                                                <a href="@Url.Content($"~/News/Detail/{item.num}/{Lang}/{item.subject.Replace("/", "").Replace(".", "")}")"
+                                                                   class="text-white">
+                                                                    <span>(@item.showtime) - </span>
+                                                                    @item.subject
+                                                                </a>
+                                                            </section>
+                                                        </li>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    foreach (var item in firstViewModel.News_NewTop)
+                                                    {
+                                                        <li class="my-3">
+                                                            <section style="font-size:18px;">
+                                                                <span class="btn btn-outline-primary btn-lg text-white border-white">活動</span>
+                                                                <a href="@Url.Content($"~/News/Detail/{item.num}/{Lang}/{item.subject.Replace("/", "").Replace(".", "")}")"
+                                                                   class="text-white">
+                                                                    <span>(@item.showtime) - </span>
+                                                                    @item.subject
+                                                                </a>
+                                                            </section>
+                                                        </li>
+                                                    }
+
+
+
+                                                }
+
+
+                                            }
+
+                                        </ul>
+                                        <div class="col-2 text-left align-self-end"
+                                             style="position:relative;bottom:30px;">
+                                            @{
+                                                if (lang_type == 2)
+                                                {
+                                                    <a class="btn btn-facebook bg-white" href="@Url.Content($"~/News/Sub/2/{Lang}/News")">
+                                                        More_Information
+                                                        @*@Resource1.More_Information*@
+                                                        <i class="fas fa-forward ml-2" style="color:#532828;"></i>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn btn-facebook bg-white" href="@Url.Content($"~/News/Sub/1/{Lang}/Product")">
+                                                        More_Information
+                                                        @*@Resource1.More_Information*@
+                                                        <i class="fas fa-forward ml-2" style="color:#532828;"></i>
+                                                    </a>
+                                                }
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 p-0 pl-1 m-0">
+            <div class="banner-inner1 h-100 "
+                 style="
+                        background: -webkit-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner_right) no-repeat;
+                        background: -moz-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner_right) no-repeat;
+                        background: -ms-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner_right) no-repeat;
+                        background: linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_banner_right) no-repeat;
+                        background-size:cover ;
+                        background-position: center;
+                        min-height:100px;">
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="col-12 my-1 p-5 ">
+                        <div style="opacity:0.8;width:100%;">
+                            <div class="d-flex flex-row flex-wrap">
+                                <div class="p-0 col-6 text-left h3 text-white">
+                                    Videos
+                                    @*@Resource1.Videos*@
+                                </div>
+                                <div class="col-6 pb-2 mr-0 pr-0 text-right">
+                                    <a class="btn btn-facebook bg-white" target="_blank"
+                                       href="@Url.Content($"~/News/Sub/4/{Lang}/Video")">
+                                        More_Information
+                                        @*@Resource1.More_Information*@
+                                        <i class="fas fa-forward ml-2" style="color:#532828;"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <iframe class="youtube-player w-100"
+                                    style="min-height:300px;"
+                                    src="https://www.youtube.com/embed/@firstViewModel.DemoCode?rel=0&amp;autoplay=1&mute=1"
+                                    allowfullscreen
+                                    frameborder="1"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--/banner-->
+
+@section scripts
+{
+    <script>
+
+        $(function () {
+            $('.video-obj').on('click', function () {
+
+                var youtubecode = $(this).data('youtubecode');
+
+                $('.youtube-player').attr("src", "https://www.youtube.com/embed/" + youtubecode);
+
+                $('#exampleModal').modal('show')
+            });
+
+            $('.joinus-obj').on('click', function () {
+
+                var urllink = $(this).data('urlcode');
+                var win = window.open(urllink, '_blank');
+
+                win.focus();
+            });
+
+
+            $('.popup-obj').on('click', function () {
+
+                var num = $(this).data('num');
+                $('#exampleModal_' + num).modal('show');
+            });
+
+
+            $('#exampleModal').on('hidden.bs.modal', function () {
+
+                $('.youtube-player').attr("src", "");
+            });
+        })
+    </script>
+
+}

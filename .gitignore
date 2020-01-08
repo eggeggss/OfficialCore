@@ -1,0 +1,10 @@
+.vs/
+appsettings.json
+MirleOfficial/wwwroot/upload
+MirleOfficial/obj
+OfficialBLL/bin
+OfficialBLL/obj
+IOfficialCommon/bin
+IOfficialCommon/obj
+OfficialDAL/obj
+OfficialDAL/bin

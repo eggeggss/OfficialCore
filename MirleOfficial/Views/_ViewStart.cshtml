@@ -1,0 +1,32 @@
+﻿@{
+    //Layout = "_Layout";
+    var ControllerName = ViewContext.RouteData.Values["Controller"].ToString();
+
+    switch (ControllerName.ToUpper())
+    {
+
+
+        case "SECOND":
+            Layout = "~/Views/Shared/_Layout2.cshtml";
+            break;
+        case "THIRD":
+            Layout = "~/Views/Shared/_Layout3.cshtml";
+            break;
+        case "ADMINPROD":
+        case "ADMINANT":
+        case "ADMINPAGE":
+        case "ADMINNEWS":
+        case "ADMINVIDEO":
+        case "ADMINSOLUTION":
+        case "ADMIN":
+            Layout = "~/Views/Shared/_Admlayout.cshtml";
+            break;
+        default:
+            int LangType = (int)ViewContext.ViewBag.LangType;
+            //int LangType = (int)@ViewContext.Controller.ViewBag.LangType;
+            Layout=(LangType==2)? "~/Views/Shared/_Mainlayout_en.cshtml": "~/Views/Shared/_Mainlayout.cshtml";
+            //Layout = "~/Views/Shared/_Mainlayout.cshtml";
+            break;
+    }
+
+}
