@@ -120,4 +120,133 @@
   <data name="Hello" xml:space="preserve">
     <value>英文</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="NewsCenter" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>Solutions</value>
+  </data>
+  <data name="HotNews" xml:space="preserve">
+    <value>HotNews</value>
+  </data>
+  <data name="FocusNews" xml:space="preserve">
+    <value>FocusNews</value>
+  </data>
+  <data name="Investors" xml:space="preserve">
+    <value>Investors</value>
+  </data>
+  <data name="FinNews" xml:space="preserve">
+    <value>FinNews</value>
+  </data>
+  <data name="AnnualReport" xml:space="preserve">
+    <value>AnnualReport</value>
+  </data>
+  <data name="Shareholder" xml:space="preserve">
+    <value>Shareholder</value>
+  </data>
+  <data name="Corporate_Governance" xml:space="preserve">
+    <value>Corporate_Governance</value>
+  </data>
+  <data name="Earnings_Call" xml:space="preserve">
+    <value>Earnings_Call</value>
+  </data>
+  <data name="Prohibition" xml:space="preserve">
+    <value>Prohibition</value>
+  </data>
+  <data name="Briefing" xml:space="preserve">
+    <value>Company Profile</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="Quality_Policy" xml:space="preserve">
+    <value>Quality Policy</value>
+  </data>
+  <data name="Milestones" xml:space="preserve">
+    <value>Milestones</value>
+  </data>
+  <data name="Awards" xml:space="preserve">
+    <value>Awards</value>
+  </data>
+  <data name="Personal_data_protection" xml:space="preserve">
+    <value>Protect Personal Data</value>
+  </data>
+  <data name="Careers" xml:space="preserve">
+    <value>Careers</value>
+  </data>
+  <data name="Add  Mirle" xml:space="preserve">
+    <value>Join us</value>
+  </data>
+  <data name="Welfare" xml:space="preserve">
+    <value>Welfare</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>Training</value>
+  </data>
+  <data name="Traffic" xml:space="preserve">
+    <value>Traffic</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Service Locations" xml:space="preserve">
+    <value>Service Locations</value>
+  </data>
+  <data name="Business Contact" xml:space="preserve">
+    <value>Business Contact</value>
+  </data>
+  <data name="Customer Service" xml:space="preserve">
+    <value>Customer Service</value>
+  </data>
+  <data name="TEL" xml:space="preserve">
+    <value>TEL</value>
+  </data>
+  <data name="FAX" xml:space="preserve">
+    <value>FAX</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="MirleRight" xml:space="preserve">
+    <value>  </value>
+  </data>
+  <data name="Road" xml:space="preserve">
+    <value>No.3, R&amp;D Rd. II, Science Park, Hsinchu, 30076, Taiwan, R.O.C</value>
+  </data>
+  <data name="More Information" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Professional link" xml:space="preserve">
+    <value>Professional Link</value>
+  </data>
+  <data name="mirle_invoice" xml:space="preserve">
+    <value>Mirle Invoice</value>
+  </data>
+  <data name="IBM Flash" xml:space="preserve">
+    <value>IBM Flash Storage is definitely your best choice</value>
+  </data>
+  <data name="File Download" xml:space="preserve">
+    <value>File Download</value>
+  </data>
+  <data name="Site map" xml:space="preserve">
+    <value>Site Map</value>
+  </data>
+  <data name="Site navigation" xml:space="preserve">
+    <value>Site Map</value>
+  </data>
+  <data name="Stakeholder" xml:space="preserve">
+    <value>Stackholder</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videos</value>
+  </data>
 </root>

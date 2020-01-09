@@ -321,8 +321,8 @@
           "en-US/MirleOfficial.resources.dll": {
             "locale": "en-US"
           },
-          "zh-CN/MirleOfficial.resources.dll": {
-            "locale": "zh-CN"
+          "zh-Hans/MirleOfficial.resources.dll": {
+            "locale": "zh-Hans"
           }
         },
         "compile": {

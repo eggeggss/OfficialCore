@@ -44,14 +44,14 @@ namespace MirleOfficial.Common
         {
             switch (lang)
             {
-                case "zh-TW":
-                    return "繁體";
+                case "en-US":
+                    return "English";
 
-                case "zh-CN":
+                case "zh-Hans":
                     return "簡體";
 
                 default:
-                    return "English";
+                    return "繁體";
             }
         }
 

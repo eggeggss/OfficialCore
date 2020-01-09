@@ -9,6 +9,11 @@
 
 
 @using MirleOfficial.ViewModel;
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
+@inject IHtmlLocalizer<MirleOfficial.SharedResource> sharedLocalizer
+
 @{
     //Layout = null;
 
@@ -472,7 +477,7 @@
                                                 if (lang_type == 2)
                                                 {
                                                     <a class="btn btn-facebook bg-white" href="@Url.Content($"~/News/Sub/2/{Lang}/News")">
-                                                        More_Information
+                                                        @sharedLocalizer["More Information"]
                                                         @*@Resource1.More_Information*@
                                                         <i class="fas fa-forward ml-2" style="color:#532828;"></i>
                                                     </a>
@@ -480,7 +485,7 @@
                                                 else
                                                 {
                                                     <a class="btn btn-facebook bg-white" href="@Url.Content($"~/News/Sub/1/{Lang}/Product")">
-                                                        More_Information
+                                                        @sharedLocalizer["More Information"]
                                                         @*@Resource1.More_Information*@
                                                         <i class="fas fa-forward ml-2" style="color:#532828;"></i>
                                                     </a>
@@ -517,7 +522,7 @@
                                 <div class="col-6 pb-2 mr-0 pr-0 text-right">
                                     <a class="btn btn-facebook bg-white" target="_blank"
                                        href="@Url.Content($"~/News/Sub/4/{Lang}/Video")">
-                                        More_Information
+                                        @sharedLocalizer["More Information"]
                                         @*@Resource1.More_Information*@
                                         <i class="fas fa-forward ml-2" style="color:#532828;"></i>
                                     </a>

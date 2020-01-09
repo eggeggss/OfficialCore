@@ -120,4 +120,133 @@
   <data name="Hello" xml:space="preserve">
     <value>繁體</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>關於盟立</value>
+  </data>
+  <data name="NewsCenter" xml:space="preserve">
+    <value>新聞中心</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>產品介紹</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>產業應用</value>
+  </data>
+  <data name="HotNews" xml:space="preserve">
+    <value>新聞訊息</value>
+  </data>
+  <data name="FocusNews" xml:space="preserve">
+    <value>產品訊息</value>
+  </data>
+  <data name="Investors" xml:space="preserve">
+    <value>投資人專區</value>
+  </data>
+  <data name="FinNews" xml:space="preserve">
+    <value>財務資訊</value>
+  </data>
+  <data name="AnnualReport" xml:space="preserve">
+    <value>公司年報</value>
+  </data>
+  <data name="Shareholder" xml:space="preserve">
+    <value>股東專欄</value>
+  </data>
+  <data name="Corporate_Governance" xml:space="preserve">
+    <value>公司治理</value>
+  </data>
+  <data name="Earnings_Call" xml:space="preserve">
+    <value>法說會資訊</value>
+  </data>
+  <data name="Prohibition" xml:space="preserve">
+    <value>禁止內線交易規定</value>
+  </data>
+  <data name="Briefing" xml:space="preserve">
+    <value>公司簡介</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>經營團隊</value>
+  </data>
+  <data name="Quality_Policy" xml:space="preserve">
+    <value>品質政策</value>
+  </data>
+  <data name="Milestones" xml:space="preserve">
+    <value>盟立沿革</value>
+  </data>
+  <data name="Awards" xml:space="preserve">
+    <value>獎項與認證</value>
+  </data>
+  <data name="Personal_data_protection" xml:space="preserve">
+    <value>個人資料保護專區</value>
+  </data>
+  <data name="Careers" xml:space="preserve">
+    <value>人才招募</value>
+  </data>
+  <data name="Add  Mirle" xml:space="preserve">
+    <value>加入盟立</value>
+  </data>
+  <data name="Welfare" xml:space="preserve">
+    <value>員工福利</value>
+  </data>
+  <data name="Training" xml:space="preserve">
+    <value>教育訓練</value>
+  </data>
+  <data name="Traffic" xml:space="preserve">
+    <value>交通資訊</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>聯絡我們</value>
+  </data>
+  <data name="Service Locations" xml:space="preserve">
+    <value>服務據點</value>
+  </data>
+  <data name="Business Contact" xml:space="preserve">
+    <value>業務聯絡</value>
+  </data>
+  <data name="Customer Service" xml:space="preserve">
+    <value>客服專線</value>
+  </data>
+  <data name="TEL" xml:space="preserve">
+    <value>電話</value>
+  </data>
+  <data name="FAX" xml:space="preserve">
+    <value>傳真</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>地址</value>
+  </data>
+  <data name="MirleRight" xml:space="preserve">
+    <value>盟立自動化(股)公司 版權所有</value>
+  </data>
+  <data name="Road" xml:space="preserve">
+    <value>台灣 30076 新竹市科學園區研發二路3號</value>
+  </data>
+  <data name="More Information" xml:space="preserve">
+    <value>更多訊息</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="Professional link" xml:space="preserve">
+    <value>專業連結</value>
+  </data>
+  <data name="mirle_invoice" xml:space="preserve">
+    <value>盟立電子發票加值中心</value>
+  </data>
+  <data name="IBM Flash" xml:space="preserve">
+    <value>IBM Flash Storage 絕對是你最佳選擇</value>
+  </data>
+  <data name="File Download" xml:space="preserve">
+    <value>檔案下載</value>
+  </data>
+  <data name="Site map" xml:space="preserve">
+    <value>網站地圖</value>
+  </data>
+  <data name="Site navigation" xml:space="preserve">
+    <value>網站導覽</value>
+  </data>
+  <data name="Stakeholder" xml:space="preserve">
+    <value>利害關係人專區</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>精彩影音</value>
+  </data>
 </root>

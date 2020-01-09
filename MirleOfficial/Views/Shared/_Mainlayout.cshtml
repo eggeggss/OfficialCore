@@ -596,17 +596,17 @@
                            id="navbarDropdownAbout"
                            aria-haspopup="true"
                            aria-expanded="false">
-                            @sharedLocalizer["Hello"]
+                            @sharedLocalizer["About"]
                             @*@Resource1.About*@ <span class="sr-only">(current)</span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
-                            <a class="dropdown-item" href="@Url.Content("~/About/Briefing")">Briefing @*@Resource1.Briefing*@</a>
-                            <a class="dropdown-item" href="@Url.Content("~/About/Organization")">Organization @*@Resource1.Organization*@</a>
-                            <a class="dropdown-item" href="@Url.Content("~/About/Quality_Policy")"> @*@Resource1.Quality_Policy*@</a>
-                            <a class="dropdown-item" href="@Url.Content("~/About/Milestones")">Milestones @*@Resource1.Milestones*@</a>
-                            <a class="dropdown-item" href="@Url.Content("~/About/Awards")"> @*@Resource1.Awards*@</a>
-                            <a class="dropdown-item" href="@Url.Content("~/About/Personal_data_protection")">Personal_data_protection @*@Resource1.Personal_data_protection*@</a>
-                            <a class="dropdown-item" href="@Url.Content("~/About/Stakeholder")">Stakeholder @*@Resource1.Stakeholder*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Briefing")"> @sharedLocalizer["Briefing"] @*@Resource1.Briefing*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Organization")"> @sharedLocalizer["Organization"] @*@Resource1.Organization*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Quality_Policy")"> @sharedLocalizer["Quality_Policy"] @*@Resource1.Quality_Policy*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Milestones")"> @sharedLocalizer["Milestones"] @*@Resource1.Milestones*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Awards")"> @sharedLocalizer["Awards"] @*@Resource1.Awards*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Personal_data_protection")"> @sharedLocalizer["Personal_data_protection"] @*@Resource1.Personal_data_protection*@</a>
+                            <a class="dropdown-item" href="@Url.Content("~/About/Stakeholder")"> @sharedLocalizer["Stakeholder"] @*@Resource1.Stakeholder*@</a>
 
                         </div>
                     </li>
@@ -618,7 +618,7 @@
                            role="button" data-toggle="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false">
-                            Products
+                            @sharedLocalizer["Products"]
                             @*@Resource1.Products*@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown2" id="product-item-menus">
@@ -629,7 +629,7 @@
                         <a class="nav-link dropdown-toggle pl-lg-0 pl-3 ml-0" href="#" id="navbarDropdown"
                            role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            Solutions
+                            @sharedLocalizer["Solutions"]
                             @*@Resource1.Solutions*@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -641,12 +641,12 @@
                         <a class="nav-link dropdown-toggle pl-lg-0 pl-3 ml-0" href="#"
                            role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"
-                           id="navbarDropdownNews">NewsCenter @*@Resource1.NewsCenter*@</a>
+                           id="navbarDropdownNews">@sharedLocalizer["NewsCenter"] @*@Resource1.NewsCenter*@</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownNews">
                             @*<a class="dropdown-item" href="@Url.Content($"~/News/Sub/3/{Lang}/Finance")">財務公告</a>*@
-                            <a class="dropdown-item" href="@Url.Content($"~/News/Sub/1/{Lang}/News")">HotNews @*@Resource1.HotNews*@</a>
-                            <a class="dropdown-item" href="@Url.Content($"~/News/Sub/2/{Lang}/Product")">FocusNews @*@Resource1.FocusNews*@</a>
-                            <a class="dropdown-item" href="@Url.Content($"~/News/Sub/4/{Lang}/Video")">Videos</a>
+                            <a class="dropdown-item" href="@Url.Content($"~/News/Sub/1/{Lang}/News")">@sharedLocalizer["HotNews"] @*@Resource1.HotNews*@</a>
+                            <a class="dropdown-item" href="@Url.Content($"~/News/Sub/2/{Lang}/Product")">@sharedLocalizer["FocusNews"]  @*@Resource1.FocusNews*@</a>
+                            <a class="dropdown-item" href="@Url.Content($"~/News/Sub/4/{Lang}/Video")"> @sharedLocalizer["Videos"]</a>
 
                         </div>
                     </li>
@@ -654,37 +654,37 @@
                         <a class="nav-link dropdown-toggle pl-lg-0 pl-3 ml-0" href="#"
                            role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"
-                           id="navbarDropdowninvestment">Investors</a>
+                           id="navbarDropdowninvestment"> @sharedLocalizer["Investors"]</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdowninvestment">
-                            <a class="dropdown-item" href="@Url.Content($"~/Investors/FinNews/")">FinNews</a>
-                            <a class="dropdown-item" href="@Url.Content($"~/Investors/AnnualReport")">AnnualReport</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Investors/Shareholder")">Shareholder</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Investors/Corporate_Governance")">Corporate_Governance</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Investors/Earnings_Call")">Earnings_Call</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Investors/Prohibition")">Prohibition</a>
+                            <a class="dropdown-item" href="@Url.Content($"~/Investors/FinNews/")">@sharedLocalizer["FinNews"] </a>
+                            <a class="dropdown-item" href="@Url.Content($"~/Investors/AnnualReport")">@sharedLocalizer["AnnualReport"] </a>
+                            <a class="dropdown-item" href="@Url.Content("~/Investors/Shareholder")">@sharedLocalizer["Shareholder"] </a>
+                            <a class="dropdown-item" href="@Url.Content("~/Investors/Corporate_Governance")">@sharedLocalizer["Corporate_Governance"] </a>
+                            <a class="dropdown-item" href="@Url.Content("~/Investors/Earnings_Call")">@sharedLocalizer["Earnings_Call"]</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Investors/Prohibition")">@sharedLocalizer["Prohibition"]</a>
                         </div>
                     </li>
                     <li class="nav-item active dropdown col-12 col-lg-2 pl-0 text-lg-center text-left">
                         <a class="nav-link dropdown-toggle pl-lg-0 pl-3 ml-0" href="#"
                            role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"
-                           id="navbarDropdowninvestment">Careers</a>
+                           id="navbarDropdowninvestment"> @sharedLocalizer["Careers"] </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdowninvestment">
-                            <a class="dropdown-item" href="@Url.Content("~/Careers/Careers")">Add__Mirle</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Careers/Welfare")">Welfare</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Careers/Training")">Training</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Careers/Traffic")">Traffic</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Careers/Careers")"> @sharedLocalizer["Add  Mirle"]</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Careers/Welfare")"> @sharedLocalizer["Welfare"]</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Careers/Training")">@sharedLocalizer["Training"]</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Careers/Traffic")">@sharedLocalizer["Traffic"] </a>
                         </div>
                     </li>
                     <li class=" nav-item active dropdown col-12 col-lg-2 pl-0  text-lg-right text-left mr-lg-0 pr-lg-0">
                         <a class="nav-link dropdown-toggle pl-lg-0 pl-3 ml-0 mr-lg-0 pr-lg-0" href="#"
                            role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"
-                           id="navbarDropdownContact">ContactUs</a>
+                           id="navbarDropdownContact">@sharedLocalizer["ContactUs"]</a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownContact">
-                            <a class="dropdown-item" href="@Url.Content("~/Contact/location")">Service_Locations</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Contact/Business")">Business_Contact</a>
-                            <a class="dropdown-item" href="@Url.Content("~/Contact/customer")">Customer_Service</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Contact/location")">@sharedLocalizer["Service_Locations"]</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Contact/Business")">@sharedLocalizer["Business_Contact"]</a>
+                            <a class="dropdown-item" href="@Url.Content("~/Contact/customer")">@sharedLocalizer["Customer_Service"]</a>
                         </div>
                     </li>
                 </ul>
@@ -704,7 +704,7 @@
                         <div class="col-lg-4 align-self-start" style="margin:0;padding:0;">
                             <section class="solution-frame" style="margin-top:50px;margin-bottom:50px;">
                                 <div class="solution-header" style="margin:0;padding:0;">
-                                    <h5 style="font-weight:500;">Solutions</h5>
+                                    <h5 style="font-weight:500;"> @sharedLocalizer["Solutions"]</h5>
                                 </div>
                                 <div class="solution-body" style="border-left:solid 1px #808080;
                                                            padding-right:15px;">
@@ -736,7 +736,7 @@
                                             <div class="col-12 align-self-end">
                                                 <a class="btn btn-default more-btn ml-0 p-0 text-white"
                                                    href="@Url.Content("~/solution/SolutionCategory")">
-                                                    More_Information
+                                                     @sharedLocalizer["More Information"]
                                                     <span class="more-btn-expand px-1 ">
                                                         <i class="fas fa-chevron-right"></i>
                                                     </span>
@@ -750,7 +750,7 @@
                         <div class="col-lg-4" style="margin:0;padding:0;">
                             <section class="solution-frame" style="margin-top:50px;margin-bottom:50px;">
                                 <div class="solution-header">
-                                    <h5 style="font-weight:500;">FocusNews</h5>
+                                    <h5 style="font-weight:500;">  @sharedLocalizer["FocusNews"]</h5>
                                 </div>
                                 <div class="solution-body" style="border-left:solid 1px #808080;">
                                     <div class="container-fluid">
@@ -794,7 +794,7 @@
                                                 <a class="btn btn-default more-btn ml-0 p-0"
                                                    style="color:white !important;"
                                                    href="@Url.Content($"~/News/Sub/2/{Lang}/Product")">
-                                                    More_Information
+                                                      @sharedLocalizer["More Information"]
                                                     <span class="more-btn-expand px-1 ">
                                                         <i class="fas fa-chevron-right"></i>
                                                     </span>
@@ -822,7 +822,7 @@
                                                         <a href="#">
                                                             <section class="m-0 p-0 text-16">
                                                                 <a href="https://inv.551.com.tw" target="_blank">
-                                                                    mirle_invoice
+                                                                     @sharedLocalizer["mirle_invoice"]
                                                                 </a>
 
                                                             </section>
@@ -833,7 +833,7 @@
                                                             <section class="m-0 p-0">
                                                                 <a href="https://seminar.ithome.com.tw/live/2018mirle/index.html"
                                                                    class="text-16"
-                                                                   target="_blank">IBM_Flash</a>
+                                                                   target="_blank">@sharedLocalizer["IBM_Flash"] </a>
                                                             </section>
                                                         </a>
                                                     </li>
@@ -841,7 +841,7 @@
 
                                                         <section class="m-0 p-0">
                                                             <a href="@Url.Content("~/Home/FileDownload")" class="text-16">
-                                                                File_Download
+                                                                 @sharedLocalizer["File_Download"]
                                                             </a>
                                                         </section>
 
@@ -849,7 +849,7 @@
                                                     <li style="margin-bottom:15px;">
                                                         <a href="@Url.Content("~/Home/SiteMap")">
                                                             <section class="m-0 p-0">
-                                                                <span class="text-16"> Site_navigation</span>
+                                                                <span class="text-16">  @sharedLocalizer["Site_navigation"] </span>
                                                             </section>
                                                         </a>
                                                     </li>
@@ -922,14 +922,14 @@
 
             <div class="row justify-content-end pr-5">
 
-                <div class="col-lg-3 col-12 text-lg-right text-sm-left ">TEL:886-3-5783280</div>
-                <div class="col-lg-2 col-12 text-lg-right text-sm-left ">FAX:886-3-5780408</div>
-                <div class="col-lg-4 col-12 text-lg-right text-sm-left ">Address:Road</div>
+                <div class="col-lg-3 col-12 text-lg-right text-sm-left ">@sharedLocalizer["TEL"]:886-3-5783280</div>
+                <div class="col-lg-2 col-12 text-lg-right text-sm-left ">@sharedLocalizer["FAX"] :886-3-5780408</div>
+                <div class="col-lg-4 col-12 text-lg-right text-sm-left ">@sharedLocalizer["Address"] :@sharedLocalizer["Road"] </div>
 
             </div>
 
             <div class="row justify-content-end pt-3 pr-5">
-                <div class="col-lg-4 col-12 text-right d-none d-lg-block ">MirleRight</div>
+                <div class="col-lg-4 col-12 text-right d-none d-lg-block "> @sharedLocalizer["MirleRight"] </div>
                 <div class="col-lg-5 col-12 text-right d-none d-lg-block ">©2019 Mirle Automation Corporation. All Rights Reserved.</div>
 
             </div>
