@@ -89,7 +89,7 @@ namespace MirleOfficial
             var supportedCultures = new CultureInfo[] {
                 new CultureInfo("en-US"),
                 new CultureInfo("zh-TW"),
-                new CultureInfo("zh-CN"),
+                new CultureInfo("zh-Hans"),
             };
             app.UseRequestLocalization(new RequestLocalizationOptions()
             {

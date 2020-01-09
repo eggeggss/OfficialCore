@@ -318,8 +318,11 @@
           "MirleOfficial.dll": {}
         },
         "resources": {
-          "en-GB/MirleOfficial.resources.dll": {
-            "locale": "en-GB"
+          "en-US/MirleOfficial.resources.dll": {
+            "locale": "en-US"
+          },
+          "zh-CN/MirleOfficial.resources.dll": {
+            "locale": "zh-CN"
           }
         },
         "compile": {
