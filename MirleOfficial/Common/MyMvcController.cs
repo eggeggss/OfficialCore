@@ -22,7 +22,7 @@ namespace MirleOfficial.Common
 
             var cookie = context.HttpContext.Request.Cookies;
 
-            var MyLang = cookie["Lang"];
+            var MyLang = cookie[".AspNetCore.Culture"];//cookie["Lang"];
 
             if (MyLang != null)
             {

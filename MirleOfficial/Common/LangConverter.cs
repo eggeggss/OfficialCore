@@ -42,17 +42,19 @@ namespace MirleOfficial.Common
 
         public static String ConvertFormCode(String lang)
         {
-            switch (lang)
-            {
-                case "en-US":
-                    return "English";
+            if (lang.Contains("en-US")){
+                return "English";
 
-                case "zh-Hans":
-                    return "簡體";
-
-                default:
-                    return "繁體";
             }
+            else if (lang.Contains("zh-Hans"))
+            {
+                return "簡體";
+            }
+            else
+            {
+                return "繁體";
+            }
+
         }
 
         public static int Convert(string lang)
