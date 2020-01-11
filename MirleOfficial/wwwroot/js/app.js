@@ -1,9 +1,9 @@
 
 function resetListiIem(trigger,target,event)
 {
-    $(trigger).on(event,function(){
+    $(trigger).on(event, function () {
         $(target).removeClass('item-click');
-    })
+    });
 }
 
 function HttpGet(url){
@@ -56,7 +56,7 @@ function GetSolutionMenusDiv(url, lang, root) {
         var $soluction_kinds = data.Solution_Kind;
 
        
-        if (lang=='English')
+        if (lang==='English')
         {
             for (i = 0; i < $soluction_kinds.length; i++) {
 
