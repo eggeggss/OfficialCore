@@ -33,8 +33,9 @@ function GetProdMenusDiv(url, lang, root) {
 
     HttpGet(url).done(function (data) {
 
-        var $pro_kinds = data.Pro_kind;
-        var $soluction_kinds = data.Solution_Kind;
+        console.log(data);
+        var $pro_kinds = data.pro_kind;
+        var $soluction_kinds = data.solution_Kind;
        
         for (i = 0; i < $pro_kinds.length; i++) {
 
@@ -53,7 +54,7 @@ function GetSolutionMenusDiv(url, lang, root) {
 
     HttpGet(url).done(function (data) {
 
-        var $soluction_kinds = data.Solution_Kind;
+        var $soluction_kinds = data.solution_Kind;
 
        
         if (lang==='English')
@@ -68,10 +69,10 @@ function GetSolutionMenusDiv(url, lang, root) {
         } else {
             for (i = 0; i < $soluction_kinds.length; i++) {
 
-                var item = " " +
+                var item2 = " " +
                     " <a class='dropdown-item col-lg-4 col-4 text-left ' href=" + root + lang + '/' + $soluction_kinds[i].num + '/' + $soluction_kinds[i].kind.replace("/", "") + ">" + $soluction_kinds[i].kind + "</a> " +
                     "";
-                $('#solution-item-menus').append(item);
+                $('#solution-item-menus').append(item2);
             }
         }
         

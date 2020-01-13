@@ -8,6 +8,7 @@
 @{
 
     string Lang = ViewBag.Lang;
+    int lang_type = (int)ViewBag.LangType;
 
     FirstViewModel firstViewModel = ViewBag.FirstViewModel as FirstViewModel;
 }
@@ -1060,13 +1061,15 @@
 
             var lang = "@ViewBag.Lang";
 
-            var url = "@Url.Content("~/api/menus/all/")" + lang;
+            //alert(lang);
+
+            var url = "@Url.Content("~/api/menus/all/")" + "@lang_type";
 
             var prodroot = "@Url.Content("~/Product/Parent/")"
             var solutionroot = "@Url.Content("~/Solution/Parent/")"
 
-            GetProdMenusDiv(url, lang, prodroot);
-            GetSolutionMenusDiv(url, lang, solutionroot);
+            GetProdMenusDiv(url, "@lang_type", prodroot);
+            GetSolutionMenusDiv(url, "@lang_type", solutionroot);
 
             var nav = $(".band-img");
             var search = $('.search-loc');
