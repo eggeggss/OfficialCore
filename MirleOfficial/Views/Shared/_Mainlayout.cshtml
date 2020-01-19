@@ -1068,8 +1068,10 @@
             var prodroot = "@Url.Content("~/Product/Parent/")"
             var solutionroot = "@Url.Content("~/Solution/Parent/")"
 
-            GetProdMenusDiv(url, "@lang_type", prodroot);
-            GetSolutionMenusDiv(url, "@lang_type", solutionroot);
+            
+
+            GetProdMenusDiv(url, lang, prodroot);
+            GetSolutionMenusDiv(url, lang, solutionroot);
 
             var nav = $(".band-img");
             var search = $('.search-loc');

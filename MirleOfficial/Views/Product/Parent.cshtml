@@ -1,0 +1,147 @@
+﻿@using MirleOfficial.ViewModel;
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
+@inject IHtmlLocalizer<MirleOfficial.SharedResource> sharedLocalizer
+
+@model ParentProductViewModel
+@{
+
+}
+
+@section metatags
+{
+    <meta property="og:title" content="盟立產品">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:locale" content="">
+    <meta property="fb:app_id" content="" />
+    <title>@Model.Title | 盟立自動化</title>
+    <meta name="keywords" content="@Model.Title、mirle">
+    <meta name="description" content="@Model.Desc、mirle">
+}
+<link href="@Url.Content("~/Content/treeview.css")" rel="stylesheet" />
+<style>
+</style>
+
+@{
+
+    string url_image = Url.Content($"~/Upload/prokind/{Model.BannerImage}");
+}
+
+<div class="container px-lg-5 px-1 mb-5">
+    <div class="d-flex flex-row flex-wrap" style="position:relative;left:0px;">
+        <div class="banner-inner col-12" style="
+        background: -webkit-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+        background: -moz-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+        background: -ms-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+        background: linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+        background-position: center;
+
+        ">
+        </div>
+        <!--d-none d-lg-block--->
+        <div class="">
+            <ol class="breadcrumb   pl-0 pt-2 mr-1 mb-0 pb-0 col-12 arr-right">
+                <li class="breadcrumb-item">
+                    <!--<a href="index.html">Home</a>-->
+                    <a href="@Url.Content("~/Home/Index")">
+                        @sharedLocalizer["Home"]
+                    </a>
+                   
+                    @*@Html.ActionLink(sharedLocalizer["Home"].ToString(), "Index", "Home")*@
+                </li>
+                <li class="breadcrumb-item">@sharedLocalizer["Products"]</li>
+                @*<li class="breadcrumb-item active">@Model.Title</li>*@
+            </ol>
+        </div>
+        <div class="d-flex col-lg-12 pl-0 pr-0 pb-5 ml-0 mr-0 mt-3 ">
+            <div class="col-lg-4 col-0 ml-0 pl-0 pr-0 mr-0 pr-lg-5">
+                <div class="card m-0 p-0 border-0 d-none d-lg-block RightMenu-item">
+                    <div class="prod-intro card-header text-center text-white pb-2 ">
+                        <span class="" style="font-size:18px;color:white;
+                              font-family: source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei',
+                                  DFKai-SB,Arial,sans-serif;">
+                            @*@Resource1.Products*@
+                            @sharedLocalizer["Products"]
+                        </span>
+                    </div>
+                    <div>
+                        @{
+                            @await Html.PartialAsync("_ParentProductTree",Model.pro_kinds);
+
+                            //await Html.PartialAsync("_ParentProductTree",
+                            //      new { lang = Model.Lang, num = 0, currentnum = Model.Num, subnum = 0 });
+
+                            //Html.RenderAction("GetProductTree",
+                            //    "Product",
+                            //    new { lang = Model.Lang, num = 0, currentnum = Model.Num, subnum = 0 });
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 col-12 m-lg-0 p-lg-0">
+                <div style="border-bottom:solid 1px #fff;" class="mb-3 pb-2 text-left">
+                    <h3 class="ml-0 pl-0 pt-1 mt-0 mb-0 category-title" style="font-family: source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;">
+                        @Model.Title
+                    </h3>
+                </div>
+
+
+                <div class=" p-0 m-0 text-left"
+                     style="font-size:18px;font-family:source-han-sans-simplified-c, 'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;">
+
+
+
+                    @Html.Raw(Model.Desc)
+
+                </div>
+
+                @{
+
+                    int totalpage = 0;
+                    totalpage = (int)Math.Ceiling(Convert.ToDouble(Model.Pro_kinds.Count()) / 3);//Model.Pro_kinds.Count();
+                }
+
+                @{
+                    @await Html.PartialAsync("_ParentCate",Model.prod_category);
+                    //Html.RenderAction("GetParentCategory",
+                    //    "Product",
+                    //    new { @num = Model.Num, @lang = Model.Lang, @pageindex = 0 });
+
+                    for (int i = 0; i < totalpage; i++)
+                    {
+                        //Html.RenderAction("GetParentCategory", "Product", new { @num = Model.Num, @lang = Model.Lang, @pageindex = i });
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/treeview.js")"></script>
+    <script>
+
+        $(function () {
+
+            //$('#collapseExample').collapse()
+            $("#treeview").shieldTreeView();
+            $('.sui-treeview').addClass("shadow-none").addClass('p-0 px-0');
+            //$('.sui-treeview').attr('style','float:right;')
+            //$('.sui-treeview-item').addClass('card');
+            //$('.sui-treeview-item-toggle').addClass('tree-toggle');
+            //$('.sui-treeview-item-toggle-collapsed').addClass('tree-toggle');
+            //$('.sui-treeview-item-list-expanded').addClass('tree-toggle');
+        })
+
+    </script>
+
+}

@@ -29,6 +29,8 @@ namespace MirleOfficial.Controllers
         [HttpGet("all/{lang}")]
         //[OutputCache(Duration = 300)]
         //[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
+
         public ActionResult<FirstViewModel> GetMenuCategory(int langtype)
         {
             string lang=LangConverter.DeConvert(langtype);

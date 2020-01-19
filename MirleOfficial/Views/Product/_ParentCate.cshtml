@@ -1,0 +1,52 @@
+﻿@using OfficialDAL
+@model IEnumerable<zp_get_parent_cate_by_page_Result>
+
+@{
+    String url = "";
+    int num = 0;
+}
+<div class="row inner-sec-w3layouts-agileinfo justify-content-start" style='margin-top:10px;'>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-12 proj_gallery_grid2 mt-3">
+
+            @{
+
+                num = num + 1;
+                if (item.kind.Contains("大型雙機"))
+                {
+                    //http://192.168.3.111:8081/Product/Detail/1429/中文/大型雙機熱備份及安全(SIL2)可編程控制器
+                    url = Url.Content($"~/Product/Detail/1429/中文/大型雙機熱備份及安全(SIL2)可編程控制器");
+                }
+                else if (item.kind.Contains("大型双机热"))
+                {
+                    //http://192.168.3.111:8081/Product/Detail/1453/简体/大型双机热备份及安全(SIL2)可编程控制器
+                    url = Url.Content($"~/Product/Detail/1453/简体/大型双机热备份及安全(SIL2)可编程控制器");
+                }
+                else
+                {
+                    url = Url.Content($"~/Product/Sub/{item.num.ToString()}/{item.lang.Trim()}/{item.kind.Replace("/", "")}");
+                }
+            }
+            <div class="section_1_gallery_grid">
+                <a href="@url">
+
+                    @*<div class="card d-block hvr-grow shadow-sm p-1">*@
+                    <div class="card d-block  shadow-sm p-1">
+                        @*<img src="@Url.Content($"~/Upload/prokind/{item.pic1}")" alt=" "*@
+                        <img class="card-img-top" width="640" height="150"
+                             src="@Url.Content($"~/Home/Thumbnail?filename=~/Upload/prokind/{item.pic1}&width=640&height=420")" />
+                        <div class="card-body prodkind-card-body
+                                  text-center p-0"
+                             style="font-family:source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;">
+                            @item.kind
+
+                        </div>
+                    </div>
+
+                </a>
+
+            </div>
+        </div>
+    }
+</div>

@@ -63,9 +63,11 @@ namespace MirleOfficial
             );
 
             services.AddScoped<FirstViewModel>();
-
+            services.AddScoped<ParentProductViewModel>();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            services.AddCloudscribePagination();
 
             services.AddControllersWithViews().
                 AddViewLocalization().

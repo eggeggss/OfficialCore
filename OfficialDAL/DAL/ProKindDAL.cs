@@ -273,15 +273,12 @@ namespace OfficialDAL.DAL
         /// </summary>
         /// <param name="langytpe"></param>
         /// <returns></returns>
-        public IEnumerable<zp_get_cate_all_Result> GetCateAll(int langytpe)
-        {
-            
+        public  IEnumerable<zp_get_cate_all_Result> GetCateAll(int langytpe)
+        {          
             {
                 Func<IEnumerable<zp_get_cate_all_Result>> func = new Func<IEnumerable<zp_get_cate_all_Result>>(() =>
-                {
-
-                   
-                    var prokind_new = _entity.zp_get_cate_all(langytpe).ToList();
+                {                  
+                    var prokind_new = _entity.zp_get_cate_all(langytpe);
 
                     return prokind_new;
 

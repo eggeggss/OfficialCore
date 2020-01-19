@@ -1,0 +1,134 @@
+﻿@using OfficialDAL
+@model IEnumerable<zp_get_cate_all_Result>
+<style>
+    .highlight {
+        font-weight: bold;
+        font-size: 16px;
+        color: #004EA2;
+    }
+
+    .highlight_sub {
+        font-size: 16px;
+        color: #004EA2;
+    }
+
+    ul, li {
+        list-style: none;
+    }
+
+    .toggleitem {
+        margin: 10px;
+    }
+</style>
+<ul id="myUL" class="ml-0 p-0 ">
+    @{
+        string lstparent = "";
+
+    }
+
+    @foreach (var item in Model)
+    {
+        if (item.parent != lstparent)
+        {
+            string flag1st = "false";
+            string hightclass = "";
+            string isactive = "";
+            string caret = "fa-caret-right fa-lg";
+
+            if (item.parentid == ViewBag.currentnum)
+            {
+                flag1st = "true";
+                hightclass = "highlight";
+                isactive = "show";
+                caret = "fa-caret-down fa-lg";
+
+            }
+
+            if (item.parent == "半導體自動化解決方案" || item.parent == "半导体自动化解决方案" || item.parent == "SEMI AMHS")
+            {
+                caret = "fa-minus fa-xs";
+            }
+            <li data-expanded="@flag1st" class="toggleitem">
+                <i class="fas @caret"></i>
+
+
+                @{
+                    if (item.parent == "半導體自動化解決方案" || item.parent == "半导体自动化解决方案" || item.parent == "SEMI AMHS")
+                    {
+                        <a href="@Url.Content($"~/Product/Parent/{((String)ViewBag.Lang).TrimEnd()}/{item.parentid}/{item.parent.Replace("/","").Replace("&","")}")">@item.parent</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Content($"~/Product/Parent/{((String)ViewBag.Lang).TrimEnd()}/{item.parentid}/{item.parent.Replace("/","").Replace("&","")}")"
+                           @*data-toggle="collapse"
+                               data-target="#collapse_A_@item.parentid"
+                               aria-expanded="true"
+                               aria-controls="collapse_A_@item.parentid"*@>
+                            <span class="@hightclass"> @item.parent</span>
+                        </a>
+                    }
+                }
+
+                <ul class="collapse  @isactive ml-3 pl-0"
+                    id="collapse_A_@item.parentid"
+                    aria-labelledby="heading_A_@item.parentid"
+                    data-parent="#accordion">
+                    @{
+                        string l2stchild = "";
+
+                    }
+                    @foreach (var item2 in Model)
+                    {
+                        string flag2st = "false";
+                        string hightclass2 = "";
+                        if (item2.parent == item.parent && item2.child != l2stchild)
+                        {
+
+                            if (item2.subid == (int)ViewBag.subnum)
+                            {
+                                flag2st = "false";
+                                hightclass2 = "highlight_sub";
+                            }
+                            if (!String.IsNullOrEmpty(@item2.child))
+                            {
+
+                                string url = "";
+                                if (item2.child.Contains("大型雙機"))
+                                {
+                                    //http://192.168.3.111:8081/Product/Detail/1429/中文/大型雙機熱備份及安全(SIL2)可編程控制器
+                                    url = Url.Content($"~/Product/Detail/1429/中文/大型雙機熱備份及安全(SIL2)可編程控制器");
+                                }
+                                else if (item2.child.Contains("大型双机热"))
+                                {
+                                    //http://192.168.3.111:8081/Product/Detail/1453/简体/大型双机热备份及安全(SIL2)可编程控制器
+                                    url = Url.Content($"~/Product/Detail/1453/简体/大型双机热备份及安全(SIL2)可编程控制器");
+                                }
+                                else
+                                {
+                                    url = Url.Content($"~/Product/Sub/{item2.subid}/{((String)ViewBag.Lang).TrimEnd()}/{item2.child.Replace("/", "").Replace("&", "")}");
+
+                                }
+
+                                //Product/Sub/36/中文/大型雙機熱備份及安全(SIL2)可編程控制器
+                                <li class="ml-0 pl-0 toggleitem" data-expanded="@flag2st">
+                                    <i class="fas fa-minus fa-xs"></i>
+                                    <a href="@url">
+                                        <span class="@hightclass2">@item2.child</span>
+                                    </a>
+
+                                </li>
+                            }
+
+                        }
+                        l2stchild = item2.child;
+                    }
+
+                </ul>
+            </li>
+
+
+        }
+
+        lstparent = item.parent;
+    }
+</ul>

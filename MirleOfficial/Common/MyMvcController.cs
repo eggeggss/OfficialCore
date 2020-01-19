@@ -40,6 +40,7 @@ namespace MirleOfficial.Common
 
             FirstViewModel = _serviceProvider.GetService<FirstViewModel>();
             FirstViewModel.SetData(this.Lang);
+            this.firstViewModel = FirstViewModel;
             ViewBag.FirstViewModel = FirstViewModel;
         }
 

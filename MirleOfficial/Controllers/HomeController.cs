@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
+//using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -17,10 +17,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.Web;
 using Microsoft.AspNetCore.Localization;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.Formats.Jpeg;
 
 namespace MirleOfficial.Controllers
 {
-    public class ImageResult : IActionResult
+    public class ImageResult : ActionResult
     {
         public ImageResult(Stream imageStream, string contentType)
         {
@@ -38,7 +43,7 @@ namespace MirleOfficial.Controllers
 
         
 
-        public async Task ExecuteResultAsync(ActionContext context)
+        public async override Task ExecuteResultAsync(ActionContext context)
         {
             if (context == null)
                 throw new ArgumentNullException("context");
@@ -80,6 +85,7 @@ namespace MirleOfficial.Controllers
             ) :base(serviceProvider)
         {
             _hostingEnvironment = hostingEnvironment;
+            
             //_accessor = accessor;
         }
 
@@ -102,7 +108,32 @@ namespace MirleOfficial.Controllers
         //[OutputCache(Duration = 300)]
         public ActionResult Thumbnail(string filename, int width, int height)
         {
-            return null;
+            var root = this._hostingEnvironment.WebRootPath;
+            root = Path.Combine(root, filename);
+            var stream = new System.IO.MemoryStream();
+            filename = root.Replace("~/", "").Replace("/", "\\");
+            //// Image.Load(string path) is a shortcut for our default type. 
+            //// Other pixel formats use Image.Load<TPixel>(string path))
+            //using (Image image = Image.Load(filename))
+            //{
+
+            //    image.Mutate(x => x
+            //         .Resize(width, height)
+            //         .Grayscale());
+            //    // image.Save($"bar_{DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss-ms")}.jpg"); // Automatic encoder selected based on extension.
+
+            //    image.Save(stream, JpegFormat.Instance);
+            //}
+
+            var image = System.IO.File.OpenRead(filename);
+            
+            return File(image, "image/jpeg");
+
+
+            //return new ImageResult(stream, "binary/octet-stream");
+
+
+            //return null;
             /*
             WebImage img = null;
             try

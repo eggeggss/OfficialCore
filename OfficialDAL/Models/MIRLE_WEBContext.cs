@@ -70,11 +70,17 @@ namespace OfficialDAL.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            OnModelCreatingExtent(modelBuilder);
+
             modelBuilder.Entity<Admin>(entity =>
             {
                 entity.HasKey(e => e.Num);
 
                 entity.ToTable("admin");
+
+                entity.ToTable("admin");
+
 
                 entity.Property(e => e.Num).HasColumnName("num");
 

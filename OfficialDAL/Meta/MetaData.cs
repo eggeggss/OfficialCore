@@ -289,8 +289,22 @@ namespace OfficialDAL.Models
         [DisplayName("顯示於首頁")]
         public bool BoolCheck { set; get; }
     }
-    
-    public partial class MIRLE_WEBContext01: MIRLE_WEBContext
+
+    public partial class MIRLE_WEBContext : DbContext
+    {
+        public virtual DbSet<zp_get_cate_all_Result> zp_get_cate_all_Result { get; set; }
+        public virtual DbSet<zp_get_parent_cate_by_page_Result> zp_get_parent_cate_by_page_Result { get; set; }
+
+        private void OnModelCreatingExtent(ModelBuilder modelBuilder)
+        {
+            //stored procedure
+            modelBuilder.Entity<zp_get_cate_all_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_parent_cate_by_page_Result>().HasNoKey();
+
+        }
+    }
+
+    public partial class MIRLE_WEBContext01 : MIRLE_WEBContext
     {
         public MIRLE_WEBContext01()
         {
