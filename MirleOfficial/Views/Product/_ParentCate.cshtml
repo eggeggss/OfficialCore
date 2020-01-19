@@ -35,7 +35,9 @@
                     <div class="card d-block  shadow-sm p-1">
                         @*<img src="@Url.Content($"~/Upload/prokind/{item.pic1}")" alt=" "*@
                         <img class="card-img-top" width="640" height="150"
-                             src="@Url.Content($"~/Home/Thumbnail?filename=~/upload/prokind/{item.pic1}&width=640&height=420")" />
+                             src="@Url.Content($"~/upload/prokind/{item.pic1}")"
+                             @*src="@Url.Content($"~/Home/Thumbnail?filename=~/upload/prokind/{item.pic1}&width=640&height=420")"*@ 
+                             />
                         <div class="card-body prodkind-card-body
                                   text-center p-0"
                              style="font-family:source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;">
