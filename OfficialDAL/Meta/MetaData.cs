@@ -295,11 +295,55 @@ namespace OfficialDAL.Models
         public virtual DbSet<zp_get_cate_all_Result> zp_get_cate_all_Result { get; set; }
         public virtual DbSet<zp_get_parent_cate_by_page_Result> zp_get_parent_cate_by_page_Result { get; set; }
 
+        public virtual DbSet<zp_get_pronews_list_Result> zp_get_pronews_list_Result { get; set; }
+
+        public virtual DbSet<zp_page_search_Result> zp_page_search_Result { get; set; }
+
+        //public virtual DbSet<String> zp_auto_complete { get; set; }
+
+        public virtual DbSet<zp_get_sub_cate_by_page_Result> zp_get_sub_cate_by_page { get; set; }
+
+        public virtual DbSet<zp_get_sub_cate_by_page_Result> zp_get_sub_cate_by_page_Result { get; set; }
+
+        public virtual DbSet<zp_get_product_new_list_Result> zp_get_product_new_list_Result { get; set; }
+
+        public virtual DbSet<zp_get_prokind_list_Result> zp_get_prokind_list_Result { get; set; }
+
+        public virtual DbSet<zp_get_prodkind_parent_Result> zp_get_prodkind_parent_Result { get; set; }
+
+        public virtual DbSet<zp_get_solution_new_list_Result> zp_get_solution_new_list_Result { get; set; }
+
+        public virtual DbSet<zp_get_solution_news_Result> zp_get_solution_news_Result { get; set; }
+
+        public virtual DbSet<zp_get_sol_sub_cate_by_page_Result> zp_get_sol_sub_cate_by_page_Result { get; set; }
+
+        public virtual DbSet<zp_get_sol_parent_cate_by_page_Result> zp_get_sol_parent_cate_by_page_Result { get; set; }
+
+        public virtual DbSet<zp_get_solutionkind_list_Result> zp_get_solutionkind_list_Result { get; set; }
+
+        public virtual DbSet<zp_get_solutionkind_list_detail_Result> zp_get_solutionkind_list_detail_Result { get; set; }
+
+        public virtual DbSet<zp_get_news_sol_category_Result> zp_get_news_sol_category_Result { get; set; }
+
         private void OnModelCreatingExtent(ModelBuilder modelBuilder)
         {
             //stored procedure
             modelBuilder.Entity<zp_get_cate_all_Result>().HasNoKey();
             modelBuilder.Entity<zp_get_parent_cate_by_page_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_pronews_list_Result>().HasNoKey();
+            modelBuilder.Entity<zp_page_search_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_sub_cate_by_page_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_sub_cate_by_page_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_product_new_list_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_prokind_list_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_prodkind_parent_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_solution_new_list_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_solution_news_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_sol_sub_cate_by_page_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_sol_parent_cate_by_page_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_solutionkind_list_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_solutionkind_list_detail_Result>().HasNoKey();
+            modelBuilder.Entity<zp_get_news_sol_category_Result>().HasNoKey();
 
         }
     }
