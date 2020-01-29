@@ -1,0 +1,281 @@
+﻿@using MirleOfficial.ViewModel;
+@using Microsoft.AspNetCore.Mvc.Localization
+@using cloudscribe.Web.Pagination
+
+@inject IViewLocalizer localizer
+@inject IHtmlLocalizer<MirleOfficial.SharedResource> sharedLocalizer
+
+
+@model SubProductViewModel
+@{
+
+}
+
+@section metatags
+{
+    <meta property="og:title" content="盟立產品">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:locale" content="">
+    <meta property="fb:app_id" content="" />
+    <title>@Model.Current.Kind | 盟立自動化</title>
+    <meta name="keywords" content="@Model.Current.Kind、mirle">
+    <meta name="description" content="@Model.Current.Kind、mirle">
+}
+@*<link href="@Url.Content("~/Content/treeview.css")" rel="stylesheet" />*@
+
+<style>
+     /*.pager {
+        margin: 8px 3px;
+        padding: 3px;
+    }
+
+        .pager .disabled {
+            border: 1px solid #ddd;
+            color: #999;
+            margin-top: 4px;
+            padding: 3px;
+            text-align: center;
+        }
+
+        .pager .current {
+            background-color: #004EA2;
+            border: 1px solid #004EA2;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 4px;
+            padding: 6px 5px;
+            text-align: center;
+            font-size: large;
+        }
+
+        .pager span, .pager a {
+            margin: 4px 3px;
+            font-size: small;
+        }
+
+        .pager a {
+            border: 1px solid #aaa;
+            padding: 3px 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: large;
+            background-color: #eee;
+        }
+
+    .page-footer {
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 0px
+    }
+
+        .page-footer ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+            .page-footer ul li {
+                flex: 0 0 340;
+            }
+
+
+        .page-footer .service {
+            flex: 0 0 100%;
+            margin: 20px 0;
+        }*/
+
+    .pagination >  .active > .page-link{
+        background-color:#004EA2 !important;
+    }
+    .page-item{
+        margin-left:5px;
+        margin-right:5px;
+    }
+
+    .pro_name_link {
+        color: #004EA2 !important;
+    }
+
+        .pro_name_link:visited {
+            color: #609 !important;
+        }
+</style>
+@*<div class="banner-inner" style="position:relative;bottom:30px;"></div>*@
+
+@{
+
+    string url_image = Url.Content($"~/Upload/prokind/{Model.Parent.Pic2}");
+}
+
+<div class="container px-lg-5 px-1 mb-5" style="overflow:hidden;">
+    <div class="d-flex flex-row flex-wrap" style="position:relative;left:0px;">
+        <div class="banner-inner col-12" style="
+            background: -webkit-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+            background: -moz-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+            background: -ms-linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+            background: linear-gradient(rgba(23, 22, 23, 0.1), rgba(23, 22, 23, 0.1)), url(@url_image) no-repeat;
+            background-position: center;
+             ">
+        </div>
+        <!--d-none d-lg-block-->
+        <div class="">
+            <ol class="breadcrumb  pl-0 pt-2 mr-1 mb-0 pb-0 col-12 arr-right">
+                <li class="breadcrumb-item">
+                    <a href="@Url.Content("~/Home")">
+                        @sharedLocalizer["Home"]
+                    </a>
+                    @*@Html.ActionLink(@sharedLocalizer["Home"], "Index", "Home")*@
+                </li>
+                <li class="breadcrumb-item">@sharedLocalizer["Products"] @*@Resource1.Products*@</li>
+
+                @{
+                    int loop = 0;
+                    int count = Model.ParentList.Count();
+                    foreach (var item in Model.ParentList)
+                    {
+                        if (loop == 0)
+                        {
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Content($"~/Product/Parent/{Model.Lang.TrimEnd()}/{item.num}/{item.kind.Replace("/","")}")">@item.kind</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Content($"~/Product/Sub/{item.num}/{Model.Lang.TrimEnd()}/{item.kind.Replace("/","")}")">@item.kind</a>
+                            </li>
+                        }
+                        loop++;
+                        if (loop == count - 1)
+                        {
+                            break;
+                        }
+
+                    }
+
+                }
+
+
+            </ol>
+        </div>
+
+        <div class="d-flex col-lg-12 pl-0 pr-0 pb-5 ml-0 mr-0 mt-3">
+            <div class="col-lg-4 col-0 ml-0 pl-0 pr-0 mr-0 pr-lg-5">
+                <div class="card m-0 p-0 border-0 d-none d-lg-block RightMenu-item">
+                    <div class="prod-intro card-header text-center text-white pb-2 ">
+                        <span style="font-size:18px;color:white;
+                              font-family:source-han-sans-simplified-c, 'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;">
+
+                            @sharedLocalizer["Products"]
+
+                        </span>
+                    </div>
+                    @{
+                        @await Html.PartialAsync("_ParentProductTree", Model.pro_kinds);
+                        //Html.RenderAction("GetProductTree", "Product",
+                        //    new { lang = Model.Lang, num = 0, currentnum = Model.Parent.num,
+                        //        subnum = Model.Current.num });
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 col-12 m-lg-0 p-lg-0 Prod-Section">
+                <div style="border-bottom:solid 1px #fff;" class="mb-3 pb-2 text-left">
+                    <h3 class="ml-0 pl-0 pt-1 mt-0 mb-0 category-title text-32">
+                        @Model.Current.Kind
+                    </h3>
+                </div>
+                <div class="outer-container w-100">
+                    <div class="container-fluid w-100">
+                        <div class="row justify-content-around">
+                            <div class="content col-12 w-100 h-100">
+                                @{
+                                    int leaf = 0;
+                                    if (Model.ChildSub != null)
+                                    {
+                                        leaf = 1;
+                                        @await Html.PartialAsync("_SubCate", Model.SubPageModel);
+                                        //Html.RenderAction("GetSubCategory", "Product",
+                                        //    new { @num = Model.Num, @lang = Model.Lang,
+                                        //        @pageindex = 10, @leaf = leaf });
+
+
+                                    }
+                                    else
+                                    {
+                                        leaf = 0;
+                                        int totalpage = 0;
+
+                                        totalpage = (int)Math.Ceiling(Convert.ToDouble(Model.Child.Data.Count()) / 3);//Model.Pro_kinds.Count();
+
+                                        for (int i = 0; i < totalpage; i++)
+                                        {
+                                            @await Html.PartialAsync("_SubCate", Model.SubPageModel);
+                                            //Html.RenderAction("GetSubCategory", "Product",
+                                            //    new
+                                            //    {
+                                            //        @num = Model.Num,
+                                            //        @lang = Model.Lang,
+                                            //        @pageindex = i,
+                                            //        @leaf = leaf
+                                            //    });
+
+                                        }//not leaf
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-6 text-center">
+                                <div class="pager col-6 ">
+                                   
+                                    <cs-pager cs-paging-pagesize="@Model.SubPageModel.PageSize"
+                                              cs-paging-pagenumber="@Model.SubPageModel.PageNumber"
+                                              cs-paging-totalitems="@Model.SubPageModel.TotalItems"                                             
+                                              cs-pager-li-current-class="page-item active"
+                                              cs-pager-li-other-class="page-item"
+                                              cs-pager-li-non-active-class="page-item disabled"
+                                              cs-pager-link-current-class="page-link"
+                                              cs-pager-link-other-class="page-link"
+                                              cs-pagenumber-param="page"></cs-pager>
+                                    @*@Html.Pager(Model.Child.PageSize, Model.Child.PageNumber, Model.Child.TotalItemCount)*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/treeview.js")"></script>
+    <script>
+
+        $(function () {
+
+            //$('#collapseExample').collapse()
+            //$("#treeview").shieldTreeView();
+            //$('.sui-treeview').addClass("shadow-none").addClass('p-0 px-0');
+
+        })
+
+    </script>
+
+}

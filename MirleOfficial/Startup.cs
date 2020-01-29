@@ -62,8 +62,17 @@ namespace MirleOfficial
             .WithScopedLifetime()
             );
 
+            // services.Scan(scan => scan
+            //.FromAssemblies(Assembly.Load("MirleOfficial"))
+            //.FromAssemblyOf<Startup>()
+            //.AddClasses(classes => classes.Where(t => t.Name.EndsWith("ViewModel", StringComparison.OrdinalIgnoreCase)))
+            //.AsSelf()
+            //.WithScopedLifetime()
+            //);
+
             services.AddScoped<FirstViewModel>();
             services.AddScoped<ParentProductViewModel>();
+            services.AddScoped<SubProductViewModel>();
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 

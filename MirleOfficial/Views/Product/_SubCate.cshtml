@@ -1,0 +1,74 @@
+﻿@using OfficialDAL
+@using System
+@using cloudscribe.Pagination.Models;
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
+@inject IHtmlLocalizer<MirleOfficial.SharedResource> sharedLocalizer
+
+
+@model PagedResult<zp_get_sub_cate_by_page_Result>
+
+<style>
+    .card-title .fas {
+        color: #004EA2;
+    }
+</style>
+
+<div class="row justify-content-center pr-4">
+
+    @foreach (var item in Model.Data)
+    {
+        <a href="#">
+            @*<div class="col-12  ml-4 mb-4  d-block " style="border-top:solid #eee 2px;" data-aos="zoom-in">*@
+            <div class="col-12  ml-4 mb-4  d-block " style="border-top:solid #eee 2px;">
+
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="col-lg-3 col-12 p-2">
+                        <a href="@Url.Content($"~/Product/Detail/{item.num}/{((String)ViewBag.Lang).TrimEnd()}/{item.pro_name.Replace("/","").Replace("&","")}")">
+                            <img class="img-fluid hvr-grow pt-3" 
+                                 src="@Url.Content($"~/upload/product/{item.pic2}")"
+                                 @*src="@Url.Content($"~/Home/Thumbnail?filename=~/Upload/product/{item.pic2}&width=800&height=600")"*@
+                                 
+                                 alt="Card image cap">
+                        </a>
+                    </div>
+                    <div class="col-lg-9 col-12">
+                        <div class="d-flex flex-row flex-wrap pt-3">
+                            <div class="col-12 m-0 p-0">
+                                <a class="pro_name_link" href="@Url.Content($"~/Product/Detail/{item.num}/{((String)ViewBag.Lang).TrimEnd()}/{item.pro_name.Replace("/","").Replace("&","")}")">
+                                    <span class="pt-2 font-weight-bold"
+                                          style="font-size:18px;
+                                  font-family:source-han-sans-simplified-c,'Noto Sans SC Sliced','Noto Sans TC','Microsoft JhengHei', DFKai-SB,Arial,sans-serif;">
+
+                                        @item.pro_name
+
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-12 m-0 p-0 pt-2">
+
+                                <p class="card-text text-left"
+                                   style="text-indent:20px;
+                               min-height:100px;
+                               overflow:hidden;
+                               color:black;">
+                                    @Html.Raw(item.words2)
+                                </p>
+
+                                <a class="btn btn-default more-btn ml-0 p-0" style="float:right;color:white !important;"
+                                   href="@Url.Content($"~/Product/Detail/{item.num}/{((String)ViewBag.Lang).TrimEnd()}/{item.pro_name.Replace("/","").Replace("&","")}")">
+                                    @sharedLocalizer["More Information"]
+                                    <span class="more-btn-expand px-1 ">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </a>
+    }
+</div>

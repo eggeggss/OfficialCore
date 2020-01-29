@@ -64,8 +64,8 @@ namespace MirleOfficial.ViewModel
                 this.Desc = parent.Words;
                 this.BannerImage = parent.Pic2;
                 Pro_kinds = _productservice.GetProductSecondCategory(lang_type, num);
-
             }
+
         }
 
     }
