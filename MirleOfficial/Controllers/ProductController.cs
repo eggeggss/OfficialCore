@@ -195,8 +195,8 @@ namespace MirleOfficial.Controllers
                 this.firstViewModel.whichSite = Common.Site.Company900;
             }
 
-            ViewBag.currentnum = _SubProductViewModel.Num;
-            ViewBag.subnum = 0;
+            ViewBag.currentnum = _SubProductViewModel.Parent.Num;
+            ViewBag.subnum = _SubProductViewModel.Current.Num;
 
             _SubProductViewModel.GetSubCategory(_SubProductViewModel.Num, lang, page_number, page);
 
